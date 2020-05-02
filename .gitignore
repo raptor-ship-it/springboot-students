@@ -1,0 +1,7 @@
+.idea
+springboot-students.iml
+*.iml
+*.log
+target/
+*.class
+.settings/
