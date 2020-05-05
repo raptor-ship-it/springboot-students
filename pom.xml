@@ -28,6 +28,9 @@
     <h2.database.version>1.4.200</h2.database.version>
     <spring.beans.version>5.2.5.RELEASE</spring.beans.version>
     <spring.data.commons.version>1.4.1.RELEASE</spring.data.commons.version>
+    <springfox.swagger.version>2.9.2</springfox.swagger.version>
+    <springfox.swagger.ui.version>2.9.2</springfox.swagger.ui.version>
+    <jaxb.binding.version>2.3.1</jaxb.binding.version>
   </properties>
 
   <dependencies>
@@ -74,6 +77,23 @@
       <version>${spring.data.commons.version}</version>
     </dependency>
 
+    <!-- springfox swagger dependency -->
+    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${springfox.swagger.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${springfox.swagger.ui.version}</version>
+    </dependency>
+
+
+
     <!-- hibernate dependencies -->
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -91,7 +111,7 @@
     <dependency>
       <groupId>javax.xml.bind</groupId>
       <artifactId>jaxb-api</artifactId>
-      <version>2.3.1</version>
+      <version>${jaxb.binding.version}</version>
     </dependency>
 
   </dependencies>
