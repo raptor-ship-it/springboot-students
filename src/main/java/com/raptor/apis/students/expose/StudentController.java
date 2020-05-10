@@ -39,7 +39,7 @@ public class StudentController {
     public ResponseEntity<?> getStudent(@PathVariable("id") final String studentId ) {
         final Student student = studentService.getStudent(studentId);
 
-        System.out.println("Student Id - " + studentId);
+        LOGGER.debug("Student Id - {} " , studentId);
 
         ResponseEntity<?> responseEntity;
         if ( student == null ) {
