@@ -31,6 +31,9 @@
     <springfox.swagger.version>2.9.2</springfox.swagger.version>
     <springfox.swagger.ui.version>2.9.2</springfox.swagger.ui.version>
     <jaxb.binding.version>2.3.1</jaxb.binding.version>
+    <log4j2.api.version>2.12.1</log4j2.api.version>
+    <log4j2.core.version>2.13.2</log4j2.core.version>
+    <log4j2.slf4j.impl.version>2.13.2</log4j2.slf4j.impl.version>
   </properties>
 
   <dependencies>
@@ -56,6 +59,18 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
       <version>${spring.boot.starter.web.version}</version>
+      <exclusions>
+        <!-- exclude native spring-boot logging - 'logback' -->
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
+      <version>2.2.6.RELEASE</version>
     </dependency>
 
     <!-- spring core dependencies -->
@@ -92,8 +107,6 @@
       <version>${springfox.swagger.ui.version}</version>
     </dependency>
 
-
-
     <!-- hibernate dependencies -->
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -113,7 +126,6 @@
       <artifactId>jaxb-api</artifactId>
       <version>${jaxb.binding.version}</version>
     </dependency>
-
   </dependencies>
 
   <build>

@@ -5,3 +5,4 @@ springboot-students.iml
 target/
 *.class
 .settings/
+logs

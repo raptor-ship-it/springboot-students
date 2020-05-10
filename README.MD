@@ -29,7 +29,7 @@
     <H5>Execution points</H5>
     <ul>
         <li>
-            <em>using <b><abbr>curl</abbr></b></em> curl -X GET "http://localhost:8090/api/school/students" -H "accept: application/json"
+            <em>using <b><abbr>curl</abbr></b> -> </em> curl -X GET "http://localhost:8090/api/school/students" -H "accept: application/json"
         </li>
     </ul>
   </p>
