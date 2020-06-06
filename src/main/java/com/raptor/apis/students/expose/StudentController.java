@@ -23,7 +23,6 @@ public class StudentController {
     /** -- member variables -- */
     private final static Logger LOGGER = LoggerFactory.getLogger(StudentController.class);
 
-
     @Autowired
     private StudentService studentService;
 
@@ -37,7 +36,7 @@ public class StudentController {
 
     @GetMapping(path = "{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getStudent(@PathVariable("id") final String studentId ) {
-        final Student student = studentService.getStudent(studentId);
+        final Student student = studentService.getStudent(Long.parseLong(studentId));
 
         LOGGER.debug("Student Id - {} " , studentId);
 

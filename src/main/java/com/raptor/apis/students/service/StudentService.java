@@ -7,9 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,15 +33,15 @@ public class StudentService {
             allStudents = new ArrayList<>(20);
             students.forEach( allStudents :: add);
 
-            LOGGER.debug("{} students found." , allStudents.size() );
+            LOGGER.debug("{} student(s) found." , allStudents.size() );
         }
 
         return allStudents;
     }
 
 
-    public Student getStudent( final String studentId ) {
-        return studentRepository.findById(Long.parseLong(studentId)).get();
+    public Student getStudent( final Long studentId ) {
+        return studentRepository.findById(studentId).get();
     }
 
 }

@@ -1,6 +1,8 @@
 package com.raptor.apis.students.domain.dao.entity;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,7 +10,8 @@ import javax.persistence.*;
 public class Student {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID")
     private Long id;
     private String firstName;
     private String middleName;

@@ -8,7 +8,7 @@
 
         <RollingFile name="RollingFile"
                      fileName="./logs/students-log.log"
-                     filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">
+                     filePattern="./logs/$${date:yyyy-MM}/students-log-%d{-dd-MMMM-yyyy}-%i.log.gz">
             <PatternLayout>
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
@@ -17,7 +17,7 @@
                     10 MegaBytes -->
                 <OnStartupTriggeringPolicy />
                 <SizeBasedTriggeringPolicy
-                        size="10 MB" />
+                        size="10GB" />
                 <TimeBasedTriggeringPolicy />
             </Policies>
         </RollingFile>
@@ -25,13 +25,15 @@
 
     <Loggers>
         <!-- LOG everything at INFO level -->
-        <Root level="info">
-            <AppenderRef ref="Console" />
+        <Root level="all">
+            <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile" />
         </Root>
 
         <!-- LOG "com.raptor.apis.students.service*" at TRACE level -->
-        <Logger name="com.raptor.apis.students.service" level="trace"></Logger>
+        <Logger name="com.raptor.apis.students" level="debug">
+            <AppenderRef ref="RollingFile" />
+        </Logger>
     </Loggers>
 
 </Configuration>
