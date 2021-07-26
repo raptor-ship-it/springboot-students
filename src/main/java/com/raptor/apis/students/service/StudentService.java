@@ -40,6 +40,13 @@ public class StudentService {
     }
 
 
+    public Student createStudent( final Student student ) {
+        final Student __student = this.studentRepository.save(student);
+        LOGGER.info("saved student with details {} " ,__student);
+
+        return __student;
+    }
+
     public Student getStudent( final Long studentId ) {
         return studentRepository.findById(studentId).get();
     }

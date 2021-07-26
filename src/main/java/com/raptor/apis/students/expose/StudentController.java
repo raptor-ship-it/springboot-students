@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -49,4 +46,21 @@ public class StudentController {
 
         return responseEntity;
     }
+
+    @PostMapping(path = "create" , consumes = MediaType.APPLICATION_JSON_VALUE ,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createStudent(@RequestBody final Student student ) {
+        LOGGER.info("Student to create {} " , student);
+        final Student __student = studentService.createStudent(student);
+
+        ResponseEntity<?> responseEntity;
+        if ( __student == null ) {
+            responseEntity = new ResponseEntity<>("student not found." , HttpStatus.NOT_FOUND);
+        } else {
+            responseEntity = new ResponseEntity<>(__student , HttpStatus.OK);
+        }
+
+        return responseEntity;
+    }
+
 }
