@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: students-pod
+  labels:
+      project: students
+spec:
+  containers:
+    - name: student
+      image: raptorkuldip/students:latest
+      ports:
+        - containerPort: 8090
