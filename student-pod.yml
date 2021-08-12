@@ -1,9 +1,11 @@
+--pod wrapper
 apiVersion: v1
 kind: Pod
 metadata:
   name: students-pod
   labels:
       project: students
+--container
 spec:
   containers:
     - name: student
