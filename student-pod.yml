@@ -4,11 +4,12 @@ kind: Pod
 metadata:
   name: students-pod
   labels:
+      app: web
       project: students
 #container
 spec:
   containers:
     - name: student
-      image: raptorkuldip/students:latest
+      image: raptorkuldip/students:0.0.1
       ports:
         - containerPort: 8090

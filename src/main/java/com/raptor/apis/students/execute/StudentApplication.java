@@ -14,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.raptor.apis.students.domain.dao.entity")
 public class StudentApplication {
 
-    public static void main (String ...a) {
+    public static void main ( final String ...a) {
        SpringApplication.run(StudentApplication.class);
     }
 
