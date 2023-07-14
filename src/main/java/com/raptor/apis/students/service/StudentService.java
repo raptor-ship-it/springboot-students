@@ -51,6 +51,12 @@ public class StudentService {
         return studentRepository.findById(studentId).get();
     }
 
+    public void removeStudent( final Long studentId ) {
+        studentRepository.deleteById( studentId );
+
+        return;
+    }
+
 }
 
 

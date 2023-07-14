@@ -63,4 +63,13 @@ public class StudentController {
         return responseEntity;
     }
 
+    @DeleteMapping(path = "remove" , consumes = MediaType.APPLICATION_JSON_VALUE,
+                    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> removeStudent(@PathVariable("id") final Long studentId) {
+        LOGGER.info("Student to remove Id {} " , studentId);
+        studentService.removeStudent(studentId);
+
+        return new ResponseEntity<>(studentId , HttpStatus.OK);
+    }
+
 }
