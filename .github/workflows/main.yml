@@ -3,7 +3,7 @@ name: ci_students
 on:
   push:
     branches:
-      - "main"
+      - "master"
 
 jobs:
   build:
