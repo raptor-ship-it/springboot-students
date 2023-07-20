@@ -63,13 +63,14 @@ public class StudentController {
         return responseEntity;
     }
 
-    @PutMapping(path = "update" , consumes = MediaType.APPLICATION_JSON_VALUE,
-                    produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "update/{id}")
     public ResponseEntity<?> removeStudent(@PathVariable("id") final Long studentId) {
         LOGGER.info("Student to remove Id {} " , studentId);
+        final ResponseEntity<?> _student = this.getStudent(studentId.toString());
+        LOGGER.info("Student to remove {} " , _student.toString());
         studentService.removeStudent(studentId);
 
-        return new ResponseEntity<>(studentId , HttpStatus.OK);
+        return new ResponseEntity<>( _student, HttpStatus.OK);
     }
 
 }

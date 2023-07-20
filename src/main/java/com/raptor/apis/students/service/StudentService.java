@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -48,7 +49,13 @@ public class StudentService {
     }
 
     public Student getStudent( final Long studentId ) {
-        return studentRepository.findById(studentId).get();
+        Student student = null;
+        Optional<Student> s = studentRepository.findById(studentId);
+        if ( s.isPresent()) {
+            student = s.get();
+        }
+
+        return student;
     }
 
     public void removeStudent( final Long studentId ) {
